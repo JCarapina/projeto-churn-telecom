@@ -1,4 +1,6 @@
--- Pergunta: Clientes com menos de 6 meses cancelam mais?
+--3. CURVA DE SOBREVIVÊNCIA (COHORTS DE TEMPO)
+-- Pergunta de Negócio: "Clientes com menos de 6 meses cancelam mais?"
+-- Objetivo: Entender se o risco está na aquisição (novos) ou na base legada.
 SELECT 
     CASE 
         WHEN tenure <= 6 THEN '0-6 Meses (Novos)'
