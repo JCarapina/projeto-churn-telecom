@@ -1,7 +1,4 @@
--- Checagem de sanidade
--- Checagem de qualidade
--- Qual é o tamanho do nosso problema de negócio?
-
+-- Visualizando as 10 primeiras linhas da tabela
 SELECT * FROM tbl_churn_raw LIMIT 10;
 
 -- Checando nulos
@@ -25,19 +22,3 @@ SELECT
     FROM tbl_churn_raw
     GROUP BY churn;
 
--- Levantado possiveis Hipoteses para o problema de churn
--- Clientes mais novos (menor tenure) ou mais antigos (maior tenure) tem mais churn?
--- R: Clientes mais novos tem uma taxa de churn significativamente maior
-SELECT
-    CASE 
-        WHEN tenure <= 12 THEN '0-1 Ano'
-        WHEN tenure <= 24 THEN '1-2 Anos'
-        WHEN tenure <= 48 THEN '2-4 Anos'
-        ELSE '4+ Anos'
-    END AS faixa_tempo,
-    COUNT(*) AS total_clientes,
-    SUM(CASE WHEN churn = 'Yes' THEN 1 ELSE 0 END) AS total_churn,
-    ROUND(SUM(CASE WHEN churn = 'Yes' THEN 1 ELSE 0 END) * 100.0 / (SELECT COUNT(*) FROM tbl_churn_raw), 2) AS taxa_churn
-    FROM tbl_churn_raw
-    GROUP BY 1
-    ORDER BY taxa_churn DESC;
