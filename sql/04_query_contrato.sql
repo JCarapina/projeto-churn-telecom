@@ -1,6 +1,7 @@
 -- 2. Contrato e Risco de Churn
 -- Pergunta de Negócio: "Qual tipo de contrato tem a maior taxa de evasão?"
 -- Objetivo: Validar a hipótese de que contratos mensais são instáveis.
+
 SELECT 
     contract,
     COUNT(customerid) as Total_Clientes,
