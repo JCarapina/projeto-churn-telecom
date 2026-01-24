@@ -11,7 +11,7 @@ No setor de telecomunicações, é consenso de mercado que o custo para adquirir
 
 **O Problema:**
 A empresa analisada enfrenta um cenário de **"Cegueira Operacional"**:
-* Existe uma taxa de cancelamento visível, mas os motivos raízes não são claros.
+* Existe uma taxa de cancelamento visível, mas as causas raíz não são claras.
 * A equipe de ponta (Customer Success) atua de forma **reativa**, tentando reter clientes apenas quando o pedido de cancelamento já foi feito.
 * Falta priorização: não há distinção clara entre quem é um cliente seguro e quem está prestes a sair.
 
@@ -35,12 +35,15 @@ O projeto foi estruturado para atender diferentes níveis da organização (Estr
 ### 3.1. Diagnóstico Financeiro e de Risco
 Através da análise de dados, quantificamos o problema:
 * **Taxa de Churn:** Identificamos uma taxa de **26,54%**, confirmando a urgência de ação.
-* **Receita em Risco:** Na amostra validada, detectamos **~$28.529,00** em receita recorrente prestes a ser perdida.
-* **Performance do Modelo:** O modelo final *Regressão Logistica*, atingiu um Recall de ~80%, priorizando a identificação da maior parte dos clientes em risco.
+* **Receita em Risco:** Na amostra validada, detectamos **~R$28.529,00** em receita recorrente prestes a ser perdida.
+* **Performance do Modelo:** O modelo final (Regressão Logística) atingiu um recall de ~80%, priorizando a identificação da maior parte dos clientes em risco.
+  
 > **Nota**
 > O modelo identificou como principais fatores de churn o tipo de contrato, a forma de pagamento e o uso de fibra óptica. Essas variáveis são apresentadas de forma operacional no dashboard para priorização de ações.
 
-#### Para minimizar a perda de clientes, o modelo foi calibrado priorizando **recall**, aceitando um aumento controlado de falsos positivos. A escolha do ponto de corte considerou o custo de errar ao não identificar um cliente prestes a cancelar.
+**Trade-off Precision vs Recall**  
+Para minimizar a perda de clientes, o modelo foi calibrado priorizando **recall**, aceitando um aumento controlado de falsos positivos. A escolha do ponto de corte considerou o custo de errar ao não identificar um cliente prestes a cancelar.
+
 ![Precision vs Recall](assets/precision_recall_tradeoff.png)
 *Análise de trade-off utilizada para definição do ponto de corte do modelo.*
 
@@ -88,4 +91,27 @@ Utilizamos uma abordagem *End-to-End* profissional:
 ├── presentation/        # Apresentação Executiva (.pdf)
 ├── sql/                 # Scripts de Business Analytics
 └── README.md            # Documentação
+```
+----
 
+## 6. Como Executar o Projeto
+
+Este projeto foi estruturado para simular um pipeline real de dados.  
+O banco de dados SQLite **não é versionado** e é gerado automaticamente via script de ingestão.
+
+### Passo 0 — Clonar o repositório
+```bash
+git clone https://github.com/JCarapina/projeto-churn-telecom.git
+cd projeto-churn-telecom
+```
+### Passo 1 — Criar o ambiente
+```bash
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### Passo 2 - Gerar banco de dados
+```bash
+python src/01_ingestao_etl.py
+```
