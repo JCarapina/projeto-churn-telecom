@@ -9,6 +9,10 @@
 ## 1. O Contexto de Negócio
 No setor de telecomunicações, é consenso de mercado que o custo para adquirir um novo cliente (CAC) é significativamente maior do que para manter um atual. Portanto, a retenção deixa de ser apenas uma métrica operacional e passa a ser uma alavanca financeira crítica para sustentabilidade do negócio.
 
+**Fonte de Dados:**    
+Este projeto utiliza a base pública Telco Customer Churn, disponibilizada no Kaggle, amplamente utilizada como benchmark em problemas de churn. Os dados foram ingeridos manualmente em um banco SQLite para      simular um ambiente real de dados.
+🔗 https://www.kaggle.com/datasets/blastchar/telco-customer-churn
+
 **O Problema:**
 A empresa analisada enfrenta um cenário de **"Cegueira Operacional"**:
 * Existe uma taxa de cancelamento visível, mas as causas raíz não são claras.
@@ -69,7 +73,7 @@ Antes da modelagem, utilizamos SQL para validar hipóteses de negócio diretamen
 
 ---
 
-## 4. Stack Tecnológico
+## 4. Ferramentas
 Utilizamos uma abordagem *End-to-End* profissional:
 
 | Categoria | Tecnologias Utilizadas |
@@ -115,3 +119,4 @@ pip install -r requirements.txt
 ```bash
 python src/01_ingestao_etl.py
 ```
+
