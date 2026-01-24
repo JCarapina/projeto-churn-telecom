@@ -1,4 +1,3 @@
--- Visualizando as 10 primeiras linhas da tabela
 SELECT * FROM tbl_churn_raw LIMIT 10;
 
 -- Checando nulos

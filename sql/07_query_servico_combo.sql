@@ -3,7 +3,6 @@
 -- Objetivo: Validar se oferecer 'Upsell' (vender mais serviços) ajuda a segurar o cliente.
 
 SELECT 
-    -- Soma as colunas de "Yes" (transformando em 1) para contar serviços extras
     (CASE WHEN OnlineSecurity='Yes' THEN 1 ELSE 0 END +
      CASE WHEN OnlineBackup='Yes' THEN 1 ELSE 0 END +
      CASE WHEN DeviceProtection='Yes' THEN 1 ELSE 0 END +
