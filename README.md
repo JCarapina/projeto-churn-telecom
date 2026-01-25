@@ -48,7 +48,7 @@ Através da análise de dados, quantificamos o problema:
 **Trade-off Precision vs Recall**  
 Para minimizar a perda de clientes, o modelo foi calibrado priorizando **recall**, aceitando um aumento controlado de falsos positivos. A escolha do ponto de corte considerou o custo de errar ao não identificar um cliente prestes a cancelar.
 
-
+![Precision vs Recall](assets/precision_recall_tradeoff.png)
 *Análise de trade-off utilizada para definição do ponto de corte do modelo.*
 
 
@@ -119,6 +119,7 @@ pip install -r requirements.txt
 ```bash
 python src/01_ingestao_etl.py
 ```
+
 
 
 
