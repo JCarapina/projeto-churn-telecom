@@ -79,7 +79,7 @@ Utilizamos uma abordagem *End-to-End* profissional:
 | Categoria | Tecnologias Utilizadas |
 | :--- | :--- |
 | **Engenharia de Dados** | **SQL (SQLite)** para extração e validação; **Pandas** para manipulação. |
-| **Machine Learning** | **Scikit-learn** & **XGBoost**; Técnicas de **SMOTE** (balanceamento) e Feature Engineering. |
+| **Machine Learning** | **Scikit-learn** & **XGBoost**; Técnicas de **class_weight** (balanceamento) e Feature Engineering. |
 | **Visualização** | **Power BI** (Dashboard Interativo) e **Matplotlib/Seaborn** (Gráficos estáticos). |
 | **Negócios** | **Storytelling** e Apresentação Executiva (PPT/PDF). |
 
@@ -119,6 +119,7 @@ pip install -r requirements.txt
 ```bash
 python src/01_ingestao_etl.py
 ```
+
 
 
 
